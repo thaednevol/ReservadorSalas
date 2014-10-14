@@ -260,3 +260,6 @@ MIT
 **Free Software, Hell Yeah!**
 
 [L Quiroga]:http://twitter.com/luferquisa
+[E Hurtado]:http://twitter.com/thaednevol
+[Figura 1]:https://github.com/thaednevol/ReservadorSalas/blob/master/formato.png
+[Dillinger]:http://dillinger.io/
