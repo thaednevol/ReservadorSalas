@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Login</title>
+	<h:outputStylesheet library="css" name="estilos.css" />
+</h:head>
+
+<h:body>
+	<p:panel>
+	<h:graphicImage library="images" name="logo.png" />
+	</p:panel>
+	<p:panel header="Usuarios nuevos"
+		style="width:inherit;float:left;;margin-left:7%">
+		<h:form id="registro">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nombre" />
+				<p:inputText id="nombre"></p:inputText>
+				<p:outputLabel value="Cédula" />
+				<p:inputText id="cedula"></p:inputText>
+				<p:outputLabel value="correo"></p:outputLabel>
+				<p:inputText id="correo"></p:inputText>
+				
+				<h:outputText value="Departamento: " />  
+		        <p:selectOneMenu value="#{buttonBean.text}">  
+		            <f:selectItem itemLabel="Select One" itemValue="" />  
+		            <f:selectItem itemLabel="Ingenieria" itemValue="1" />  
+		            <f:selectItem itemLabel="Ciencias Básicas" itemValue="Option 2" />  
+		            <f:selectItem itemLabel="Derecho" itemValue="Option 3" />  
+		        </p:selectOneMenu>  
+        
+				<p:commandButton value="Enviar"></p:commandButton>
+			</p:panelGrid>
+		</h:form>
+	</p:panel>
+	<p:panel header="Login"
+		style="width:inherit;float:right;margin-right:7%">
+		<h:form id="login">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Cédula" />
+				<p:inputText id="cedula"></p:inputText>
+				<p:outputLabel value="clave"></p:outputLabel>
+				<p:inputText id="clave"></p:inputText>
+				<p:commandButton value="Enviar"></p:commandButton>
+			</p:panelGrid>
+			<a href="#">Olvide mi contraseña</a>
+		</h:form>
+	</p:panel>
+
+
+</h:body>
+</html>
