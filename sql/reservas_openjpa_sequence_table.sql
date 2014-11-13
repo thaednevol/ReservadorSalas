@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `reservas` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `reservas`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: reservas
 -- ------------------------------------------------------
--- Server version	5.5.38
+-- Server version	5.6.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,7 +37,7 @@ CREATE TABLE `openjpa_sequence_table` (
 
 LOCK TABLES `openjpa_sequence_table` WRITE;
 /*!40000 ALTER TABLE `openjpa_sequence_table` DISABLE KEYS */;
-INSERT INTO `openjpa_sequence_table` VALUES (0,201);
+INSERT INTO `openjpa_sequence_table` VALUES (0,51);
 /*!40000 ALTER TABLE `openjpa_sequence_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-01 17:09:57
+-- Dump completed on 2014-11-04 16:16:21

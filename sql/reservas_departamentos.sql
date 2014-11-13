@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `reservas` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `reservas`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: reservas
 -- ------------------------------------------------------
--- Server version	5.5.38
+-- Server version	5.6.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `departamentos` (
   `departamento` varchar(45) NOT NULL,
   `estado` enum('Habilitado','Inhabilitado') DEFAULT NULL,
   PRIMARY KEY (`iddepartamentos`)
-) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,6 @@ CREATE TABLE `departamentos` (
 
 LOCK TABLES `departamentos` WRITE;
 /*!40000 ALTER TABLE `departamentos` DISABLE KEYS */;
-INSERT INTO `departamentos` VALUES (154,'Matemáticas','Habilitado');
 /*!40000 ALTER TABLE `departamentos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-01 17:10:05
+-- Dump completed on 2014-11-04 16:16:21

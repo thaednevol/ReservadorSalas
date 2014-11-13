@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `reservas` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `reservas`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: reservas
 -- ------------------------------------------------------
--- Server version	5.5.38
+-- Server version	5.6.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `softwaresalas` (
   `idSoftware` int(11) NOT NULL,
   `estado` enum('Habilitado','Inhabilitar') DEFAULT NULL,
   PRIMARY KEY (`idSala`,`idSoftware`),
-  KEY `fk_softwareSalas_software1` (`idSoftware`),
+  KEY `fk_softwareSalas_software1_idx` (`idSoftware`),
   CONSTRAINT `fk_softwareSalas_salas1` FOREIGN KEY (`idSala`) REFERENCES `salas` (`idsalas`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_softwareSalas_software1` FOREIGN KEY (`idSoftware`) REFERENCES `software` (`idsoftware`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-01 17:10:04
+-- Dump completed on 2014-11-04 16:16:21

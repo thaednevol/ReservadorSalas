@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `reservas` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `reservas`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: reservas
 -- ------------------------------------------------------
--- Server version	5.5.38
+-- Server version	5.6.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,13 +29,12 @@ CREATE TABLE `usuariosprofesor` (
   `iddepartamento` int(11) NOT NULL,
   `idTipoDocumento` int(11) NOT NULL,
   `documento` varchar(45) NOT NULL,
-  `idusuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idusuairo`),
+  PRIMARY KEY (`idusuairo`,`idTipoDocumento`),
   KEY `fk_usuariosProfesor_departamentos_idx` (`iddepartamento`),
   KEY `fk_usuariosProfesor_tipoDocumentos1_idx` (`idTipoDocumento`),
   CONSTRAINT `fk_usuariosProfesor_departamentos` FOREIGN KEY (`iddepartamento`) REFERENCES `departamentos` (`iddepartamentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuariosProfesor_tipoDocumentos1` FOREIGN KEY (`idTipoDocumento`) REFERENCES `tipodocumentos` (`idtipodocumentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_usuariosProfesor_usuarios` FOREIGN KEY (`idusuairo`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_usuariosprofesor_usuarios1` FOREIGN KEY (`idusuairo`) REFERENCES `usuarios` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,7 +44,6 @@ CREATE TABLE `usuariosprofesor` (
 
 LOCK TABLES `usuariosprofesor` WRITE;
 /*!40000 ALTER TABLE `usuariosprofesor` DISABLE KEYS */;
-INSERT INTO `usuariosprofesor` VALUES (1,154,1,'1032369782',NULL);
 /*!40000 ALTER TABLE `usuariosprofesor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-01 17:09:59
+-- Dump completed on 2014-11-04 16:16:21
