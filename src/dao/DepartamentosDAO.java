@@ -2,39 +2,26 @@ package dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
-import modelo.Departamentos;
+import Entity.DepartamentosEntidad;
 
-public class DepartamentosDAO {
+public class DepartamentosDao extends Conexion{
 	
-	EntityManager em;
-	
-	public DepartamentosDAO(){
-		EntityManagerFactory factory = Persistence.
-			    createEntityManagerFactory("Reservas", System.getProperties());
-		em = factory.createEntityManager();
+	public void crear(DepartamentosEntidad de){
+			this.conectar();
+			this.getEm().getTransaction().begin();		
+			this.getEm().persist(de);
+			this.getEm().getTransaction().commit();		
+			this.getEm().close();
 	}
 	
-	public List<Departamentos> getDepartamentos(){
-		Query q = em.createQuery("Select x from departamentos x");
-		return (List<Departamentos>)q.getResultList();
-	}
-	
-	public void guardarDepartamento(String nombre, String estado){
-		em.getTransaction().begin();
-		addDepartamento(nombre, estado);
-		em.getTransaction().commit();
-	}
-	
-	public void addDepartamento(String nombre, String estado){
-		Departamentos d = new Departamentos();
-		d.setDepartamento(nombre);
-		d.setEstado(estado);
-		em.persist(d);
+	public List<DepartamentosEntidad> consultar(){
+		this.conectar();
+		 TypedQuery<DepartamentosEntidad> q2 = this.getEm().createQuery("SELECT d FROM departamentos d", DepartamentosEntidad.class);
+		 List<DepartamentosEntidad> r = q2.getResultList();
+		 this.getEm().close();
+		 return r;
 	}
 
 }

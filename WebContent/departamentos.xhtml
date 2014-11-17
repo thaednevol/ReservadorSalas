@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+ <p:panel header="Departamento nuevo">
+		<h:form id="registro">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Departamento" />
+				<p:inputText id="departamento" value="#{departamentos.dd.departamento}"></p:inputText>
+				<p:commandButton value="Enviar"  action="#{departamentos.crear}" update="j_idt9:j_idt11:deptos" ></p:commandButton>
+			</p:panelGrid>
+		</h:form>
+	</p:panel>
+	<p:panel header="Departamentos" id="deptos" style="width:inherit;float:left;;margin-left:7%">
+		<p:dataTable var="dep" value="#{departamentos.listadep}">
+		    <p:column headerText="Id">
+		        <h:outputText value="#{dep.iddepartamentos}" />
+		    </p:column>
+		 
+		    <p:column headerText="Year">
+		        <h:outputText value="#{dep.departamento}" />
+		    </p:column>
+		 
+		    <p:column headerText="Brand">
+		        <h:outputText value="#{dep.estado}" />
+		    </p:column>
+		 
+		   
+		</p:dataTable>
+   </p:panel>
+  
+</h:body>
+</html>

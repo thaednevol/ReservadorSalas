@@ -1,45 +1,32 @@
 package dao;
 
-import java.util.List;
+import Entity.UsuariosEntidad;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
-import modelo.Departamentos;
-import modelo.Usuarios;
-
-public class UsuariosDAO {
-
+public class UsuariosDao extends Conexion {
 	
-	EntityManager em;
-	
-	public UsuariosDAO(){
-		EntityManagerFactory factory = Persistence.
-			    createEntityManagerFactory("Reservas", System.getProperties());
-		em = factory.createEntityManager();
+	public UsuariosDao(){
+		
 	}
 	
-	public List<Usuarios> getUsuarios(){
-		Query q = em.createQuery("Select x from usuarios x");
-		return (List<Usuarios>)q.getResultList();
+	public void crearUsuario(UsuariosEntidad u){
+		this.conectar();
+		this.getEm().getTransaction().begin();		
+		this.getEm().persist(u);
+		this.getEm().getTransaction().commit();		
+		this.getEm().close();
 	}
 	
-	public void guardarUsuario(String correo, String password, String nombre, String apellido, String estado, String perfil){
-		em.getTransaction().begin();
-		addUsuario(correo, password, nombre, apellido, estado, perfil);
-		em.getTransaction().commit();
+	public static void main(String args[]){
+		UsuariosDao u= new UsuariosDao();
+		UsuariosEntidad ue = new UsuariosEntidad();
+
+		ue.setApellido("luisa");
+		ue.setNombre("luisa");
+		ue.setCorreo("luisa");
+		ue.setPassword("luisa");
+		ue.setPerfil("Profesor");
+		ue.setEstado("Creado");
+		u.crearUsuario(ue);
 	}
-	
-	public void addUsuario(String correo, String password, String nombre, String apellido, String estado, String perfil){
-		Usuarios d = new Usuarios();
-		d.setCorreo(correo);
-		d.setPassword(password);
-		d.setNombre(nombre);
-		d.setApellido(apellido);
-		d.setEstado(estado);
-		d.setPerfil(perfil);
-		em.persist(d);
-	}
+
 }

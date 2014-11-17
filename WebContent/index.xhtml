@@ -16,43 +16,59 @@
 	<p:panel>
 	<h:graphicImage library="images" name="logo.png" />
 	</p:panel>
-	<p:panel header="Usuarios nuevos"
-		style="width:inherit;float:left;;margin-left:7%">
+	<p:panel header="Usuarios nuevos" style="width:inherit;float:left;;margin-left:7%">
 		<h:form id="registro">
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Nombre" />
-				<p:inputText id="nombre"></p:inputText>
-				<p:outputLabel value="Cédula" />
-				<p:inputText id="cedula"></p:inputText>
-				<p:outputLabel value="correo"></p:outputLabel>
-				<p:inputText id="correo"></p:inputText>
+				<p:inputText id="nombre" value="#{usuario.ud.name}"></p:inputText>
+				<p:outputLabel value="Apellido" />
+				<p:inputText id="apellido" value="#{usuario.ud.apellido}"></p:inputText>
+				<p:outputLabel value="Correo"></p:outputLabel>
+				<p:inputText id="correo" value="#{usuario.ud.correo}"></p:inputText>
+				<p:outputLabel value="Clave"></p:outputLabel>
+				<p:password id="clave" value="#{usuario.ud.password}"></p:password >
+				<p:outputLabel value="Confirmar Clave"></p:outputLabel>
+				<p:password id="claveconfirmar"></p:password >
 				
-				<h:outputText value="Departamento: " />  
-		        <p:selectOneMenu value="#{buttonBean.text}">  
-		            <f:selectItem itemLabel="Select One" itemValue="" />  
-		            <f:selectItem itemLabel="Ingenieria" itemValue="1" />  
-		            <f:selectItem itemLabel="Ciencias Básicas" itemValue="Option 2" />  
-		            <f:selectItem itemLabel="Derecho" itemValue="Option 3" />  
-		        </p:selectOneMenu>  
+<!-- 				<h:outputText value="Departamento: " />   -->
+<!-- 		        <p:selectOneMenu value="#{buttonBean.text}">   -->
+<!-- 		            <f:selectItem itemLabel="Select One" itemValue="" />   -->
+<!-- 		            <f:selectItem itemLabel="Ingenieria" itemValue="1" />   -->
+<!-- 		            <f:selectItem itemLabel="Ciencias Básicas" itemValue="Option 2" />   -->
+<!-- 		            <f:selectItem itemLabel="Derecho" itemValue="Option 3" />   -->
+<!-- 		        </p:selectOneMenu>   -->
         
-				<p:commandButton value="Enviar"></p:commandButton>
+				<p:commandButton value="Enviar" onclick="return validarclave()" action="#{usuario.register}"></p:commandButton>
 			</p:panelGrid>
 		</h:form>
 	</p:panel>
-	<p:panel header="Login"
-		style="width:inherit;float:right;margin-right:7%">
-		<h:form id="login">
-			<p:panelGrid columns="2">
-				<p:outputLabel value="Cédula" />
-				<p:inputText id="cedula"></p:inputText>
-				<p:outputLabel value="clave"></p:outputLabel>
-				<p:inputText id="clave"></p:inputText>
-				<p:commandButton value="Enviar"></p:commandButton>
-			</p:panelGrid>
-			<a href="#">Olvide mi contraseña</a>
-		</h:form>
-	</p:panel>
+<!-- 	<p:panel header="Login" -->
+<!-- 		style="width:inherit;float:right;margin-right:7%"> -->
+<!-- 		<h:form id="login"> -->
+<!-- 			<p:panelGrid columns="2"> -->
+<!-- 				<p:outputLabel value="Cédula" /> -->
+<!-- 				<p:inputText id="cedula"></p:inputText> -->
+<!-- 				<p:outputLabel value="clave"></p:outputLabel> -->
+<!-- 				<p:inputText id="clave"></p:inputText> -->
+<!-- 				<p:commandButton value="Enviar"></p:commandButton> -->
+<!-- 			</p:panelGrid> -->
+<!-- 			<a href="#">Olvide mi contraseña</a> -->
+<!-- 		</h:form> -->
+<!-- 	</p:panel> -->
 
-
+<script>
+function validarclave(){
+	clave1 = document.getElementById("registro:clave");
+	clave2 = document.getElementById("registro:claveconfirmar");	
+	if(clave1.value==clave2.value){
+		return true;
+	}
+	else{
+		alert("Las contraseñas no coinciden");
+		return false;
+	}
+	return false;
+}		
+</script>
 </h:body>
 </html>
